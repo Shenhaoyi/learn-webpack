@@ -2,11 +2,16 @@
   "name": "webpack-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "./src/main.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
 }
