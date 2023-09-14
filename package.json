@@ -5,7 +5,8 @@
   "main": "./src/main.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && webpack ./src/main.js --mode=development",
+    "build-prod": "rm -rf dist && webpack ./src/main.js --mode=production"
   },
   "keywords": [],
   "author": "",
