@@ -13,7 +13,12 @@ export default {
   },
   // 加载器
   module: {
-    rules: [],
+    rules: [
+      {
+        test: /\.css$/, // 处理css文件
+        use: ['style-loader', 'css-loader'], // 默认处理顺序是从右到左
+      },
+    ],
   },
   // 插件
   plugins: [],
