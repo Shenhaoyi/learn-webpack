@@ -9,7 +9,7 @@ export default {
     // path: 文件输出目录，必须是绝对路径
     path: path.resolve(process.cwd(), 'dist'),
     // 输出文件名
-    filename: 'main.js',
+    filename: 'main.js', // 可以加上路径，会自动生成文件夹的
   },
   // 加载器
   module: {
@@ -29,6 +29,9 @@ export default {
           dataUrlCondition: {
             maxSize: 8 * 1024, // 小于100kb的图片会被base64处理(默认是8kb)
           },
+        },
+        generator: {
+          filename: 'images/[hash][ext][query]',
         },
       },
     ],
