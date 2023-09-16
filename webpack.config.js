@@ -18,6 +18,10 @@ export default {
         test: /\.css$/, // 处理css文件
         use: ['style-loader', 'css-loader'], // 默认处理顺序是从右到左
       },
+      {
+        test: /\.less$/, // 处理less文件
+        use: ['style-loader', 'css-loader', 'less-loader'],
+      },
     ],
   },
   // 插件
