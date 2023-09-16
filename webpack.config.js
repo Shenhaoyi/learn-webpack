@@ -27,7 +27,7 @@ export default {
         type: 'asset', // 根据parser.dataUrlCondition 判断是将文件输出到目标目录还是生成base64打包到js文件中
         parser: {
           dataUrlCondition: {
-            maxSize: 100 * 1024, // 小于100kb的图片会被base64处理(默认是8kb)
+            maxSize: 8 * 1024, // 小于100kb的图片会被base64处理(默认是8kb)
           },
         },
       },
