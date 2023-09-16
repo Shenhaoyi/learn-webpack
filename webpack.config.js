@@ -10,6 +10,7 @@ export default {
     path: path.resolve(process.cwd(), 'dist'),
     // 输出文件名
     filename: 'main.js', // 可以加上路径，会自动生成文件夹的
+    clean: true,
   },
   // 加载器
   module: {
