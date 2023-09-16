@@ -1,5 +1,7 @@
 .root {
   width: 100vw;
   height: 100vh;
-  background-color: red;
+  background-size: 10% 10%;
+  background-image: url('../assets/images/xiaoxin.jpg');
+  background-repeat: no-repeat;
 }
