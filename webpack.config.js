@@ -31,7 +31,7 @@ export default {
           },
         },
         generator: {
-          filename: 'images/[hash][ext][query]',
+          filename: 'images/[hash:10][ext][query]',
         },
       },
     ],
