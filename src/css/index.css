@@ -5,3 +5,12 @@
   background-image: url('../assets/images/xiaoxin.jpg');
   background-repeat: no-repeat;
 }
+
+/* iconfont symbol的样式 */
+.iconfont-symbol {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
