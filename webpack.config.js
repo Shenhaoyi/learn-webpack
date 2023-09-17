@@ -35,6 +35,13 @@ export default {
           filename: 'images/[hash:10][ext][query]',
         },
       },
+      {
+        test: /\.(woff2?|ttf)$/, // iconfont
+        type: 'asset/resource',
+        generator: {
+          filename: 'media/[hash:10][ext][query]',
+        },
+      },
     ],
   },
   // 插件
