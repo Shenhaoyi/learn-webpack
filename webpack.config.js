@@ -1,5 +1,6 @@
 import path from 'path';
 import process from 'process';
+import ESLintPlugin from 'eslint-webpack-plugin';
 
 export default {
   // 入口
@@ -45,7 +46,13 @@ export default {
     ],
   },
   // 插件
-  plugins: [],
+  plugins: [
+    new ESLintPlugin({
+      // context: path.resolve(process.cwd()),
+      // extensions: ['js'],
+      // exclude: ['node_modules'],
+    }),
+  ],
   // 模式
   mode: 'development',
 };
