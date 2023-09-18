@@ -7,12 +7,16 @@
   "scripts": {
     "build": "rm -rf dist && webpack",
     "build-prod": "rm -rf dist && webpack --mode=production",
-    "lint": "eslint --ext .jsx,.js src/"
+    "lint": "eslint --ext .jsx,.js src/",
+    "test-babel": "babel src --out-dir lib"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.22.15",
+    "@babel/core": "^7.22.20",
+    "@babel/preset-env": "^7.22.20",
     "css-loader": "^6.8.1",
     "eslint": "^8.49.0",
     "eslint-webpack-plugin": "^4.0.1",
