@@ -43,6 +43,16 @@ export default {
           filename: 'media/[hash:10][ext][query]',
         },
       },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/, // 引用到的包不再重复处理
+        use: {
+          loader: 'babel-loader',
+          // options: {
+          //   presets: ['@babel/preset-env'], // 在babel.config.js文件中配置就行了
+          // },
+        },
+      },
     ],
   },
   // 插件
