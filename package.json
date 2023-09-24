@@ -5,9 +5,9 @@
   "main": "./src/main.js",
   "type": "module",
   "scripts": {
-    "serve": "webpack serve",
-    "build": "rm -rf dist && webpack",
-    "build-prod": "rm -rf dist && webpack --mode=production",
+    "start": "npm run serve",
+    "serve": "webpack serve --config webpack.dev.js",
+    "build": "webpack build --config webpack.prod.js",
     "lint": "eslint --ext .jsx,.js src/",
     "test-babel": "babel src --out-dir lib"
   },

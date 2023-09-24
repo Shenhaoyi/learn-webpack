@@ -3,6 +3,8 @@ import process from 'process';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
+// 截止p23的配置
+
 export default {
   // 入口
   entry: './src/main.js', // 相对路径和绝对路径都可以（配置文件在根目录的话用相对路径就行）
