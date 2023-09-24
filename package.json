@@ -5,6 +5,7 @@
   "main": "./src/main.js",
   "type": "module",
   "scripts": {
+    "serve": "webpack serve",
     "build": "rm -rf dist && webpack",
     "build-prod": "rm -rf dist && webpack --mode=production",
     "lint": "eslint --ext .jsx,.js src/",
@@ -26,6 +27,7 @@
     "less-loader": "^11.1.3",
     "style-loader": "^3.3.3",
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
