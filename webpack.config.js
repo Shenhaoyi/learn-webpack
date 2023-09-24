@@ -1,6 +1,7 @@
 import path from 'path';
 import process from 'process';
 import ESLintPlugin from 'eslint-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   // 入口
@@ -10,7 +11,7 @@ export default {
     // path: 文件输出目录，必须是绝对路径
     path: path.resolve(process.cwd(), 'dist'),
     // 输出文件名
-    filename: 'main.js', // 可以加上路径，会自动生成文件夹的
+    filename: 'static/main.js', // 可以加上路径，会自动生成文件夹的
     clean: true,
   },
   // 加载器
@@ -61,6 +62,9 @@ export default {
       // context: path.resolve(process.cwd()),
       // extensions: ['js'],
       // exclude: ['node_modules'],
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(process.cwd(), 'public/index.html'),
     }),
   ],
   // 模式
