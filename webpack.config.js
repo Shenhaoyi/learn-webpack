@@ -12,7 +12,7 @@ export default {
     path: path.resolve(process.cwd(), 'dist'),
     // 输出文件名
     filename: 'static/main.js', // 可以加上路径，会自动生成文件夹的
-    clean: true,
+    clean: true, // 在生成文件之前清空 output 目录
   },
   // 加载器
   module: {
