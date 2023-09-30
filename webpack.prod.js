@@ -4,6 +4,7 @@ import process from 'process';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 
 // 获取处理样式的Loaders
 const getStyleLoaders = (preProcessor) => {
@@ -65,8 +66,10 @@ export default {
       template: path.resolve(process.cwd(), 'public/index.html'),
     }),
     new MiniCssExtractPlugin({
+      // 提取css文件用的插件，用到其中的loader
       filename: 'style/[name].css', // 输出文件名
     }),
+    new CssMinimizerPlugin(), // css压缩
   ],
   // 模式
   mode: 'production',
