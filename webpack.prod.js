@@ -3,6 +3,7 @@ import path from 'path';
 import process from 'process';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
   ...baseConfig,
@@ -11,11 +12,11 @@ export default {
     rules: [
       {
         test: /\.css$/, // 处理css文件
-        use: ['style-loader', 'css-loader'], // 默认处理顺序是从右到左
+        use: [MiniCssExtractPlugin.loader, 'css-loader'], // 默认处理顺序是从右到左
       },
       {
         test: /\.less$/, // 处理less文件
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|webp)$/, // 图片
@@ -57,6 +58,9 @@ export default {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(process.cwd(), 'public/index.html'),
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style/[name].css', // 输出文件名
     }),
   ],
   // 模式
