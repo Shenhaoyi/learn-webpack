@@ -12,11 +12,11 @@ export default {
     rules: [
       {
         test: /\.css$/, // 处理css文件
-        use: [MiniCssExtractPlugin.loader, 'css-loader'], // 默认处理顺序是从右到左
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'], // 默认处理顺序是从右到左
       },
       {
         test: /\.less$/, // 处理less文件
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|webp)$/, // 图片
