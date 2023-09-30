@@ -1,4 +1,8 @@
 import baseConfig from './webpack.base.js';
+import path from 'path';
+import process from 'process';
+import ESLintPlugin from 'eslint-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   ...baseConfig,

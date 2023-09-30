@@ -1,7 +1,5 @@
 import path from 'path';
 import process from 'process';
-import ESLintPlugin from 'eslint-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   // 入口
