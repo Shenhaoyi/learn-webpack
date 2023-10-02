@@ -69,8 +69,15 @@ export default {
       // 提取css文件用的插件，用到其中的loader
       filename: 'style/[name].css', // 输出文件名
     }),
-    new CssMinimizerPlugin(), // css压缩
+    // new CssMinimizerPlugin(), // 放到下面了
   ],
+  optimization: {
+    minimizer: [
+      // 在 webpack@5 中，你可以使用 `...` 语法来扩展现有的 minimizer（即 `terser-webpack-plugin`），将下一行取消注释
+      `...`,
+      new CssMinimizerPlugin(), // css压缩
+    ],
+  },
   // 模式
   mode: 'production',
 };
