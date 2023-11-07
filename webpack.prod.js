@@ -77,6 +77,12 @@ export default {
       `...`,
       new CssMinimizerPlugin(), // css压缩
     ],
+    // 代码分割配置
+    splitChunks: {
+      chunks: 'all', // 对所有模块都进行分割判断
+      minSize: 0, // 我们定义的文件体积太小了，所以要改打包的最小文件体积
+      minChunks: 1, // 被引用x次就拆分
+    },
   },
   // 模式
   mode: 'production',
