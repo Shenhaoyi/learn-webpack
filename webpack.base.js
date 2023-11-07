@@ -15,6 +15,7 @@ export default {
     path: path.resolve(process.cwd(), 'dist'),
     // 输出文件名
     filename: 'static/[name].js', // 可以加上路径，会自动生成文件夹的
+    chunkFilename: 'static/[name].chunk.js', // 动态导入模块输出的文件命名
     clean: true, // 在生成文件之前清空 output 目录
   },
 };
