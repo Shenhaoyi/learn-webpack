@@ -15,3 +15,9 @@ setTimeout(async () => {
   const { lazy } = await import(/* webpackChunkName: "lazy" */ './js/lazy.js');
   lazy();
 }, 5000);
+
+// 不兼容低版本浏览器的代码
+const promise = Promise.resolve();
+promise.then(() => {
+  console.log("hello promise");
+});
