@@ -68,8 +68,8 @@ export default {
     }),
     new MiniCssExtractPlugin({
       // 提取css文件用的插件，用到其中的loader
-      filename: 'style/[name].css', // 输出文件名
-      // chunkFilename: "style/[name].chunk.css", // 如果有动态导入的 css 文件，可以这样取名，详见 code split
+      filename: 'style/[name].[contenthash:8].css', // 输出文件名
+      // chunkFilename: "style/[name].[contenthash:8].chunk.css", // 如果有动态导入的 css 文件，可以这样取名，详见 code split
     }),
     // new CssMinimizerPlugin(), // 放到下面 optimization 内了
     new PreloadWebpackPlugin({
