@@ -5,6 +5,7 @@ import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import PreloadWebpackPlugin from '@vue/preload-webpack-plugin';
 
 // 获取处理样式的Loaders
 const getStyleLoaders = (preProcessor) => {
@@ -70,7 +71,11 @@ export default {
       filename: 'style/[name].css', // 输出文件名
       // chunkFilename: "style/[name].chunk.css", // 如果有动态导入的 css 文件，可以这样取名，详见 code split
     }),
-    // new CssMinimizerPlugin(), // 放到下面了
+    // new CssMinimizerPlugin(), // 放到下面 optimization 内了
+    new PreloadWebpackPlugin({
+      rel: 'preload', // 比 prefetch 兼容性更好
+      as: 'script',
+    }),
   ],
   optimization: {
     minimizer: [
