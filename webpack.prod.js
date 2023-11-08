@@ -91,6 +91,10 @@ export default {
       // minChunks: 1, // 被引用x次就拆分
       // 其他配置都使用默认值，详见笔记
     },
+    // 提取runtime文件，关联 entrypoint 文件的所有被依赖文件的输出文件名，间接导入
+    runtimeChunk: {
+      name: (entrypoint) => `runtime~${entrypoint.name}`, // runtime文件命名规则
+    },
   },
   // 模式
   mode: 'production',
