@@ -45,7 +45,7 @@ export default {
         },
       },
       {
-        test: /\.m?js$/,
+        test: /\.m?jsx?$/,
         exclude: /node_modules/, // 引用到的包不再重复处理
         use: {
           loader: 'babel-loader',
