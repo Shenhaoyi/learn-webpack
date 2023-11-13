@@ -49,9 +49,11 @@ export default {
         exclude: /node_modules/, // 引用到的包不再重复处理
         use: {
           loader: 'babel-loader',
-          // options: {
-          //   presets: ['@babel/preset-env'], // 在babel.config.js文件中配置就行了
-          // },
+          options: {
+            //   presets: ['@babel/preset-env'], // 在babel.config.js文件中配置就行了
+            cacheDirectory: true, // 开启babel编译缓存
+            cacheCompression: false, // 缓存文件不要压缩
+          },
         },
       },
     ],
