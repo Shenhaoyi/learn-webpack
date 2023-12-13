@@ -3,6 +3,7 @@ import path from 'path';
 import process from 'process';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export default {
   ...baseConfig,
@@ -40,7 +41,7 @@ export default {
         test: /\.m?jsx?$/,
         exclude: /node_modules/, // 引用到的包不再重复处理
         resolve: {
-          /* 
+          /*
             https://github.com/graphql/graphql-js/issues/2721
             解决配置了resolve.extensions之后，不写拓展名报错的问题
           */
@@ -52,6 +53,7 @@ export default {
             //   presets: ['@babel/preset-env'], // 在babel.config.js文件中配置就行了
             cacheDirectory: true, // 开启babel编译缓存
             cacheCompression: false, // 缓存文件不要压缩
+            plugins: [await import.meta.resolve('react-refresh/babel')],
           },
         },
       },
@@ -67,12 +69,14 @@ export default {
     new HtmlWebpackPlugin({
       template: path.resolve(process.cwd(), 'public/index.html'),
     }),
+    new ReactRefreshWebpackPlugin(),
   ],
   // 开发服务器
   devServer: {
     host: 'localhost', // 启动服务器域名
     port: '3000', // 启动服务器端口号
     open: true, // 启动后自动打开默认浏览器
+    hot: true, // 默认就是 true
   },
   // 模式
   mode: 'development',

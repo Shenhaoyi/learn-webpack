@@ -18,6 +18,7 @@ export default {
     chunkFilename: 'static/[name].[contenthash:8].chunk.js', // 动态导入模块输出的文件命名
     clean: true, // 在生成文件之前清空 output 目录
   },
+  // 文件的拓展名补全
   resolve: {
     extensions: ['.jsx', '...'], // '...'表示包含默认的配置
   },
