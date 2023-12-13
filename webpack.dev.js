@@ -77,6 +77,7 @@ export default {
     port: '3000', // 启动服务器端口号
     open: true, // 启动后自动打开默认浏览器
     hot: true, // 默认就是 true
+    historyApiFallback: true, // 支持 history 路由，统一返回 index.html
   },
   // 模式
   mode: 'development',
