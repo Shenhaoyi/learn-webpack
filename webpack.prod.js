@@ -6,6 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import PreloadWebpackPlugin from '@vue/preload-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 // 获取处理样式的Loaders
 const getStyleLoaders = (preProcessor) => {
@@ -84,6 +85,18 @@ export default {
     new PreloadWebpackPlugin({
       rel: 'preload', // 比 prefetch 兼容性更好
       as: 'script',
+    }),
+    // 复制 public 目录下的文件，并忽略 index.html
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(process.cwd(), 'public'),
+          to: path.resolve(process.cwd(), 'dist'),
+          globOptions: {
+            ignore: ['**/index.html'],
+          },
+        },
+      ],
     }),
   ],
   optimization: {
