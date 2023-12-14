@@ -112,6 +112,20 @@ export default {
       // minSize: 0, // 我们定义的文件体积太小了，所以要改打包的最小文件体积
       // minChunks: 1, // 被引用x次就拆分
       // 其他配置都使用默认值，详见笔记
+      cacheGroups: {
+        // 将react相关的库单独打包，减少node_modules的chunk体积。
+        react: {
+          test: /[\\/]node_modules[\\/]react(.*)?[\\/]/,
+          name: 'chunk-react',
+          priority: 20,
+        },
+        default: {
+          // 其他没有写的配置会使用上面的默认值
+          minChunks: 2, // 这里的minChunks权重更大
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
     },
     // 提取runtime文件，关联 entrypoint 文件的所有被依赖文件的输出文件名，间接导入
     runtimeChunk: {
