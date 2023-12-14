@@ -48,7 +48,7 @@ export default {
         test: /\.m?jsx?$/,
         exclude: /node_modules/, // 引用到的包不再重复处理
         resolve: {
-          /* 
+          /*
             https://github.com/graphql/graphql-js/issues/2721
             解决配置了resolve.extensions之后，不写拓展名报错的问题
           */
