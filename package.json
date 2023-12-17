@@ -47,6 +47,7 @@
     "-": "0.0.1",
     "@babel/plugin-transform-runtime": "^7.22.15",
     "core-js": "^3.33.2",
-    "vue": "^3.3.12"
+    "vue": "^3.3.12",
+    "vue-router": "^4.2.5"
   }
 }
