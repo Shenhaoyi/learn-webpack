@@ -6,6 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import PreloadWebpackPlugin from '@vue/preload-webpack-plugin';
+import { VueLoaderPlugin } from 'vue-loader';
 
 // 获取处理样式的Loaders
 const getStyleLoaders = (preProcessor) => {
@@ -56,6 +57,10 @@ export default {
           },
         },
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
     ],
   },
   // 插件
@@ -78,6 +83,7 @@ export default {
       rel: 'preload', // 比 prefetch 兼容性更好
       as: 'script',
     }),
+    new VueLoaderPlugin(), // 将js、css 等解析规则应用到vue文件中的 script 和 style 的处理中
   ],
   optimization: {
     minimizer: [

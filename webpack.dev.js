@@ -3,6 +3,7 @@ import path from 'path';
 import process from 'process';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { VueLoaderPlugin } from 'vue-loader';
 
 export default {
   ...baseConfig,
@@ -48,6 +49,10 @@ export default {
           },
         },
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
     ],
   },
   // 插件
@@ -60,6 +65,7 @@ export default {
     new HtmlWebpackPlugin({
       template: path.resolve(process.cwd(), 'public/index.html'),
     }),
+    new VueLoaderPlugin(), // 将js、css 等解析规则应用到vue文件中的 script 和 style 的处理中
   ],
   // 开发服务器
   devServer: {
