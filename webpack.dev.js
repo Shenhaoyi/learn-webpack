@@ -48,13 +48,13 @@ export default {
             cacheCompression: false, // 缓存文件不要压缩
           },
         },
+        resolve: {
+          fullySpecified: false,
+        },
       },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        resolve: {
-          fullySpecified: false,
-        },
       },
     ],
   },
