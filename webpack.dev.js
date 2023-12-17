@@ -6,6 +6,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { VueLoaderPlugin } from 'vue-loader';
 import wpk from 'webpack';
 const { DefinePlugin } = wpk; // webpack 是 cjs，直接引会报错
+import AutoImport from 'unplugin-auto-import/webpack';
+import Components from 'unplugin-vue-components/webpack';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 export default {
   ...baseConfig,
@@ -75,6 +78,12 @@ export default {
     new DefinePlugin({
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false,
+    }),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
     }),
   ],
   // 开发服务器

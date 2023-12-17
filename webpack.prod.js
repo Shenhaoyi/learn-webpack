@@ -7,6 +7,9 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import PreloadWebpackPlugin from '@vue/preload-webpack-plugin';
 import { VueLoaderPlugin } from 'vue-loader';
+import AutoImport from 'unplugin-auto-import/webpack';
+import Components from 'unplugin-vue-components/webpack';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 // 获取处理样式的Loaders
 const getStyleLoaders = (preProcessor) => {
@@ -87,6 +90,12 @@ export default {
       as: 'script',
     }),
     new VueLoaderPlugin(), // 将js、css 等解析规则应用到vue文件中的 script 和 style 的处理中
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
   ],
   optimization: {
     minimizer: [
